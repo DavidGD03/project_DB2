@@ -1,0 +1,95 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="jumbotron">
+    <h2 style="text-align: center; color: #206aaa;">Registrate</h2>
+    {% from "includes/_formhelpers.html" import render_field %}
+    <form method="POST" action="">
+            <label>Nombre:</label>
+        <div class="form-group">
+            {{render_field(form.nombre, class_="form-control")}}
+        </div>
+        <label>Correo:</label>
+        <div class="form-group">
+            {{render_field(form.email, class="form-control")}}
+        </div>
+        <label>Nickname:</label>
+        <div class="form-group">
+            {{render_field(form.nickname, class="form-control")}}
+        </div>
+        <label>Contraseña:</label>
+        <div class="form-group">
+            {{render_field(form.contrasena, class="form-control")}}
+        </div>
+        <label>Teléfono:</label>
+        <div class="form-group">
+            {{render_field(form.telefono, class="form-control")}}
+        </div>
+        <label>Fecha de nacimiento: (Año-Mes-Día)</label>
+        <div class="form-group">
+            {{render_field(form.fchnacimiento, class="form-control")}}
+        </div>
+        <label>Género:</label>
+        <div class="form-group">
+            <select class="form-control" id="genero" onchange="populateList();"
+            name="genero">
+            <option value="Hombre">Hombre</option>	
+            <option value="Mujer">Mujer</option>	
+            <option value="Otro">Otro</option>	
+            </select>
+        </div>
+        <label>Departamento:</label>
+        <div class="form-group">
+                                    <select class="form-control" id="departamento" onchange="populateList();"
+                                            name="departamento">
+                                            <option value="Amazonas">Amazonas</option>	
+                                            <option value="Antioquia">Antioquia</option>	
+                                            <option value="Arauca">Arauca</option>	
+                                            <option value="Atlántico">Atlántico</option>	
+                                            <option value="Bolívar">Bolívar</option>	
+                                            <option value="Boyacá">Boyacá</option>	
+                                            <option value="Caldas">Caldas</option>	
+                                            <option value="Caquetá">Caquetá</option>	
+                                            <option value="Casanare">Casanare</option>	
+                                            <option value="Cauca">Cauca</option>	
+                                            <option value="Cesar">Cesar</option>	
+                                            <option value="Chocó">Chocó</option>	
+                                            <option value="Córdoba">Córdoba</option>	
+                                            <option value="Cundinamarca">Cundinamarca</option>	
+                                            <option value="Guainía">Guainía</option>	
+                                            <option value="Guavire">Guaviare</option>	
+                                            <option value="Huila">Huila</option>	
+                                            <option value="La Guajira">La Guajira</option>	
+                                            <option value="Magdalena">Magdalena</option>	
+                                            <option value="Meta">Meta</option>	
+                                            <option value="Nariño">Nariño</option>	
+                                            <option value="Norte de Santander">Norte de Santander</option>	
+                                            <option value="Putumayo">Putumayo</option>	
+                                            <option value="Quindío">Quindío</option>	
+                                            <option value="Risaralda">Risaralda</option>	
+                                            <option value="San Andrés y Providencia">San Andrés y Providencia</option>	
+                                            <option value="Santander">Santander</option>	
+                                            <option value="Sucre">Sucre</option>	
+                                            <option value="Tolima">Tolima</option>	
+                                            <option value="Valle del Cauca">Valle del Cauca</option>	
+                                            <option value="Vaupés">Vaupés</option>	
+                                            <option value="Vichada">Vichada</option>
+                                    </select> </div>
+                                    <label>Ciudad:</label>                               
+        <div class="form-group">
+            {{render_field(form.ciudad, class="form-control")}}
+        </div>
+        <label>Dirección:</label>
+        <div class="form-group">
+            {{render_field(form.direccion, class="form-control")}}
+        </div>
+        <label>Código Postal:</label>
+        <div class="form-group">
+            {{render_field(form.codpostal, class="form-control")}}
+        </div>
+        <p>
+            <input type="submit" class="btn btn-primary" value="Registrarse">
+        </p>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% block body %}
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <!-- /.col-lg-3 -->
+        <div class="col-lg-12">
+            
+                <div class="row">
+                        {% for noticia in noticia %}
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="card mb-4">
+                                <a href="/noticias?view={{noticia.id}}">
+                                    <div class="card-img-top id_{{noticia.id}}"
+                                         style="background: url('static/image/product/noticia/{{noticia.imagen}}'); background-repeat:no-repeat; background-size: cover; height:200px;width:100% "></div>
+                                </a>
+                                <div class="card-body">
+                                    <h3>{{ noticia.titulo }}</h3>
+                                    <h10>{{ noticia.fecha }}</h10>
+                                    <h6><a class="card-title" href="/noticias?view={{noticia.id}}">Lee más</a></h6>
+                                    <span class="text-warning"></span>
+                                </div>
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                        {% endfor %}
+                    </div>
+                    
+
+        </div>
+        <!-- /.col-lg-9 -->
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+{% endblock %}

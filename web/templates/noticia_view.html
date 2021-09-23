@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+{% block body %}
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <!-- /.col-lg-3 -->
+        <div class="col-lg-12">
+            {% for noticia in noticia %}
+                <div class="row">
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            
+                           <br> <br>                          
+                        <h2>Título: {{ noticia.titulo }}</h2>
+                        <br>
+                        <h10>Fecha: {{ noticia.fecha }}</h10>
+                        <br><br>
+                        <h6>Descripción: {{ noticia.descripcion }}</h6>
+                                   <br> <br>
+        
+                            <!-- /.card -->
+                        </div>
+                   
+                    </div>
+                    {% endfor %}      
+
+        </div>
+        <!-- /.col-lg-9 -->
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+{% endblock %}

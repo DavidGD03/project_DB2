@@ -1,0 +1,95 @@
+{% extends 'layout.html' %}
+{% block body %}
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <!-- /.col-lg-3 -->
+        <div class="col-lg-12">
+            
+            <h3><a href="/tecnologia">Tecnología</a></h3>
+            <div class="row">
+                {% for objeto in tecnologia %}
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="card mb-4">
+                        <a href="/tecnologia?view={{objeto.id}}">
+                            <div class="card-img-top id_{{objeto.id}}"
+                                 style="background: url('static/image/product/{{objeto.fk_id_categoria}}/{{objeto.imagen}}'); background-repeat:no-repeat; background-size: cover; height:200px;width:100% "></div>
+                        </a>
+                        <div class="card-body">
+                            <h5><a class="card-title" href="/tecnologia?view={{objeto.id}}">{{ objeto.nombre}}</a></h5>
+                            <h4>${{objeto.precio}} COP</h4>
+                            <span class="text-warning"></span>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+                {% endfor %}
+            </div>
+            <!-- /.row -->
+            <h3><a href="/electro">Electrodomésticos y Hogar</a></h3>
+            <div class="row">
+                {% for objeto in electro %}
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="card mb-4">
+                        <a href="/electro?view={{objeto.id}}">
+                            <div class="card-img-top"
+                                 style="background: url('static/image/product/{{objeto.fk_id_categoria}}/{{objeto.imagen}}'); background-repeat:no-repeat; background-size: cover; height:200px;width:100% "></div>
+                        </a>
+                        <div class="card-body">
+                            <h5><a class="card-title" id="" href="/electro?view={{objeto.id}}">{{ objeto.nombre}}</a></h5>
+                            <h4>${{objeto.precio}} COP</h4>
+                            <span class="text-warning"></span>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+                {% endfor %}
+            </div>
+            <!-- /.row -->
+            <h3><a href="/moda">Moda</a></h3>
+            <div class="row">
+                {% for objeto in moda %}
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="card mb-4">
+                        <a href="/moda?view={{objeto.id}}">
+                            <div class="card-img-top"
+                                 style="background: url('static/image/product/{{objeto.fk_id_categoria}}/{{objeto.imagen}}'); background-repeat:no-repeat; background-size: cover; height:200px;width:100% "></div>
+                        </a>
+                        <div class="card-body">
+                            <h5><a class="card-title" href="/moda?view={{objeto.id}}">{{ objeto.nombre}}</a></h5>
+                            <h4>${{objeto.precio}} COP</h4>
+                            <span class="text-warning"></span>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+                {% endfor %}
+            </div>
+
+            <h3><a href="/libros">Libros</a></h3>
+            <div class="row">
+                {% for objeto in libros %}
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="card mb-4">
+                            <a href="/libros?view={{objeto.id}}">
+                            <div class="card-img-top"
+                                 style="background: url('static/image/product/{{objeto.fk_id_categoria}}/{{objeto.imagen}}'); background-repeat:no-repeat; background-size: cover; height:200px;width:100% "></div>
+                        </a>
+                        <div class="card-body">
+                            <h5><a class="card-title" href="/libros?view={{objeto.id}}">{{ objeto.nombre}}</a></h5>
+                            <h4>${{objeto.precio}} COP</h4>
+                            <span class="text-warning"></span>
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+        <!-- /.col-lg-9 -->
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+{% endblock %}

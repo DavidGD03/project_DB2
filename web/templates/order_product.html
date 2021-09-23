@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+{% block body %}
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 my-4">
+            <div class="list-group">
+                <a href="/tshirt" class="list-group-item">T-Shirt</a>
+                <a href="/wallet" class="list-group-item">Wallet</a>
+                <a href="/belt" class="list-group-item">Belt</a>
+                <a href="/shoes" class="list-group-item">Shoes</a>
+            </div>
+        </div>
+        <!-- /.col-lg-3 -->
+        <div class="col-lg-9">
+            <div class="row">
+                {% for objeto in orden %}
+                <div class="col-lg-6">
+                    <div class="card mt-4">
+                        <img class="card-img-top img-fluid"
+                             src="static/image/product/{{objeto.fk_id_categoria}}/{{objeto.imagen}}" alt="">
+                    </div>
+                </div>
+                <!-- /.card -->
+                <div class="col-lg-6">
+                    <div class="card card-outline-secondary my-4">
+                        <div class="card-header">
+                            Pedir {{objeto.nombre}}
+                        </div>
+                        {% if session.logged_in %}
+                        <div class="card-body">
+                            {% from "includes/_formhelpers.html" import render_field %}
+                            <form method="POST" action="/{{categoria}}?order={{objeto.id}}">
+
+                                <div class="form-group">
+                                    {{render_field(form.quantity, class_="form-control")}}
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">Confirmar</button>
+                            </form>
+                        </div>
+                        {% else %}
+                        <div class="form-group">
+                            Debes <a href="/login">Iniciar sesión</a> para pedir
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- /.card -->
+
+            </div>
+    
+        </div>
+        <!-- /.col-lg-9 -->
+
+
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->
+{% endblock %}

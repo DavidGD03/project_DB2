@@ -1,0 +1,52 @@
+{% extends 'pages/layout.html' %}
+{% block body %}
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Añadir noticia</h1>
+            {% include 'includes/_flashmsg.html' %}
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <form role="form" enctype=multipart/form-data class="" action="/admin_add_new"
+                                  method="post">
+                                <div class="form-group">
+                                    <label>Título de la noticia</label>
+                                    <input class="form-control" required="required" name="titulo" placeholder="título">
+                                </div>
+                                <div class="form-group">
+                                    <label>Descripción</label>
+                                    <input class="form-control" required="required" name="descripcion" placeholder="descripción">
+                                </div>
+                                <div class="form-group">
+                                        <label>Fecha</label>
+                                        <input class="form-control" required="required" name="fecha" type="date" placeholder="xxxx/xx/xx  año/mes/díá">
+                                    </div>
+                                <div class="form-group">
+                                    <label>Añadir imagen</label>
+                                    <input type="file" required="required" name="picture">
+                                </div>
+                                <button type="submit" class="btn btn-default">Subir noticia</button>
+                            </form>
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /#page-wrapper -->
+{% endblock %}

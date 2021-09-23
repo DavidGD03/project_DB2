@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+{% block body %}
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 my-4">
+            <div class="list-group">
+                <a href="/tecnologia" class="list-group-item">Tecnología</a>
+                <a href="/electro" class="list-group-item">Electrodomésticos y Hogar</a>
+                <a href="/moda" class="list-group-item">Moda</a>
+                <a href="/libros" class="list-group-item">Libros</a>
+            </div>
+        </div>
+        <!-- /.col-lg-3 -->
+        <div class="col-lg-9">
+            <div class="row">
+                {% for objeto in tecnologia %}
+                <div class="col-lg-6">
+                    <div class="card mt-4">
+                        <img class="card-img-top img-fluid"
+                             src="static/image/product/{{objeto.fk_id_categoria}}/{{objeto.imagen}}" alt="">
+                    </div>
+                </div>
+                <!-- /.card -->
+                <div class="col-lg-6">
+                    <div class="card card-outline-secondary my-4">
+                        <div class="card-header">
+                           Detalles del producto
+                        </div>
+                        <div class="card-body">
+                                {% from "includes/_formhelpers.html" import render_field %}
+                            <h3 class="card-title">{{ objeto.nombre}}</h3>
+                            <h4>${{ objeto.precio}} COP</h4>
+                            <p class="card-text">{{ objeto.descripcion}}</p>
+                            <p class="card-text">Tiempo de garantía: {{ objeto.garantia}}</p>
+                            <p class="card-text">Cantidad disponibles: {{ objeto.cantidad}}</p>
+                            {% if session.logged_in %}
+                            <a href="/{{categoria}}?order={{objeto.id}}" class="btn btn-success">Añadir carrito</a>
+                            {% else %}
+                            <a href="/login" class="btn btn-success">Inicia sesión para pedir</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- /.card -->
+
+            </div>
+        </div>
+        <!-- /.col-lg-9 -->
+
+
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->
+{% endblock %}

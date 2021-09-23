@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+{% block body %}
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            <h1 class="my-4">Moda</h1>
+            <div class="list-group">
+                <a href="/tecnologia" class="list-group-item">Tecnología</a>
+                <a href="/electro" class="list-group-item">Electrodomésticos y Hogar</a>
+                <a href="/moda" class="list-group-item active">Moda</a>
+                <a href="/libros" class="list-group-item">Libros</a>
+            </div>
+        </div>
+        <!-- /.col-lg-3 -->
+        <div class="col-lg-9">
+            {% include 'includes/_flashmsg.html' %}
+            
+
+            <div class="row">
+                {% for objeto in moda %}
+                <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-4">
+                    <div class="card h-100">
+                        <a href="/moda?view={{objeto.id}}">
+                            <div class="card-img-top"
+                                 style="background: url('static/image/product/{{objeto.fk_id_categoria}}/{{product.picture}}'); background-repeat:no-repeat; background-size: cover; height:200px;width:100% "></div>
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="/moda?view={{objeto.id}}">{{ product.pName}}</a>
+                            </h5>
+                            <h4>${{objeto.precio}} COP</h4>
+                        </div>
+                        <div class="card-footer">
+                            <small class="text-muted"></small>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <!-- /.row -->
+
+        </div>
+        <!-- /.col-lg-9 -->
+
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->
+{% endblock %}
